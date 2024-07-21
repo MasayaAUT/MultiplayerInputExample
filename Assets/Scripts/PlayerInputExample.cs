@@ -29,6 +29,20 @@ public class PlayerInputExample : MonoBehaviour
     {
         //Cleaning up :)
         InputManager.instance.onPlayerJoined -= AssignInputs;
+
+        if(playerControls != null)
+        {
+            playerControls.MasterActions.NorthButton.performed -= NorthButton_performed;
+            playerControls.MasterActions.NorthButton.canceled -= NorthButton_canceled;
+            playerControls.MasterActions.SouthButton.performed -= SouthButton_performed;
+            playerControls.MasterActions.SouthButton.canceled -= SouthButton_canceled;
+            playerControls.MasterActions.EastButton.performed -= EastButton_performed;
+            playerControls.MasterActions.EastButton.canceled -= EastButton_canceled;
+            playerControls.MasterActions.WestButton.performed -= WestButton_performed;
+            playerControls.MasterActions.WestButton.canceled -= WestButton_canceled;
+            playerControls.MasterActions.Movement.performed -= Movement_performed;
+            playerControls.MasterActions.Movement.canceled -= Movement_canceled;
+        }
     }
 
     //This function will be called if the Joined Button has been detected from any device
